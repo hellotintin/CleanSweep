@@ -36,7 +36,13 @@ public class FloorManager : MonoBehaviour
     {
         Debug.Log("Floor Cleared!");
 
-        int nextFloor = HotelGenerator.Instance.GetCurrentFloor() + 1;
+        int currentFloor = HotelGenerator.Instance.GetCurrentFloor();
+        GameAnalyticsManager.OnFloorCompleted(currentFloor);
+
+        int nextFloor = currentFloor + 1;
+
+        if (nextFloor >= HotelGenerator.Instance.totalFloors)
+            GameAnalyticsManager.OnGameCompleted();
 
         HotelGenerator.Instance.GoToFloor(nextFloor);
     }

@@ -42,6 +42,7 @@ public class Room : MonoBehaviour, IInteractable
 
         cleared = true;
 
+        GameAnalyticsManager.OnRoomCleared(status);
         FloorManager.Instance.RoomCleared();
     }
 

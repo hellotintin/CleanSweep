@@ -24,6 +24,7 @@ public class HotelGenerator : MonoBehaviour
     void Start()
     {
         GenerateHotel();
+        GameAnalyticsManager.OnFloorStarted(0);
     }
 
     void GenerateHotel()
@@ -58,6 +59,8 @@ public class HotelGenerator : MonoBehaviour
         Vector3 pos = floors[floorIndex].transform.position;
 
         player.position = pos + new Vector3(0, 1, -4);
+
+        GameAnalyticsManager.OnFloorStarted(floorIndex);
     }
 
     public int GetCurrentFloor()

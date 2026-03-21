@@ -1,4 +1,4 @@
-#if false
+#if true
 
 using System;
 using GameAnalyticsSDK;
